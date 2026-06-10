@@ -79,11 +79,13 @@
   </div>
   <div class="container">
     <div class="login-card">
-      <input class="login-input" type="text" id="inp-usuario" placeholder="Usuário" autocomplete="username"
-        onkeydown="if(event.key==='Enter')document.getElementById('inp-senha').focus()">
-      <input class="login-input" type="password" id="inp-senha" placeholder="Senha" autocomplete="current-password"
-        onkeydown="if(event.key==='Enter')doLogin()">
-      <button class="login-btn" id="btn-entrar" onclick="doLogin()">Entrar</button>
+      <form id="login-form" onsubmit="event.preventDefault();doLogin()" autocomplete="on">
+        <input class="login-input" type="text" id="inp-usuario" name="username" placeholder="Usuário" autocomplete="username"
+          onkeydown="if(event.key==='Enter')document.getElementById('inp-senha').focus()">
+        <input class="login-input" type="password" id="inp-senha" name="password" placeholder="Senha" autocomplete="current-password"
+          onkeydown="if(event.key==='Enter')doLogin()">
+        <button class="login-btn" id="btn-entrar" type="submit">Entrar</button>
+      </form>
       <div class="login-err" id="login-err"></div>
     </div>
     <div class="footer" style="margin-top:24px">Desenvolvido por <span>Fluxo Certo 360</span></div>
