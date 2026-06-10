@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <title>Econômico Delivery — Retaguarda</title>
+  <meta name="theme-color" content="#0d0d0d"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Retaguarda"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    :root{
+      --y:#FFC600;
+      --dark:#0d0d0d;
+      --card:#161616;
+      --border:#2a2a2a;
+      --text2:#888;
+    }
+    body{
+      background:var(--dark);
+      color:#fff;
+      font-family:'Inter',system-ui,sans-serif;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:24px 20px;
+      padding-bottom:calc(32px + env(safe-area-inset-bottom));
+    }
+
+    /* BRAND */
+    .brand{text-align:center;margin-bottom:40px}
+    .brand-logo{
+      width:80px;height:80px;border-radius:20px;
+      background:var(--y);
+      display:flex;align-items:center;justify-content:center;
+      font-size:38px;margin:0 auto 16px;
+      box-shadow:0 8px 32px rgba(255,198,0,.25)
+    }
+    .brand-name{
+      font-family:'Syne',sans-serif;
+      font-size:26px;font-weight:800;
+      color:#fff;letter-spacing:-.5px;
+      line-height:1.1
+    }
+    .brand-sub{
+      font-size:13px;color:var(--text2);
+      margin-top:6px;font-weight:600;letter-spacing:.3px
+    }
+    .brand-tag{
+      display:inline-block;
+      margin-top:10px;
+      background:#1a1a1a;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:4px 14px;
+      font-size:11px;color:var(--text2);
+      font-weight:600;letter-spacing:.5px
+    }
+
+    /* CARDS */
+    .cards{width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px}
+
+    .app-card{
+      display:flex;align-items:center;gap:16px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px 20px;
+      text-decoration:none;
+      color:#fff;
+      transition:border-color .2s,background .2s;
+      cursor:pointer
+    }
+    .app-card:active{background:#1e1e1e;border-color:#444}
+
+    .app-icon{
+      width:52px;height:52px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:26px;flex-shrink:0
+    }
+    .app-icon.admin    {background:#1a1a2e;border:1px solid #3b82f6}
+    .app-icon.expedicao{background:#1a2e1a;border:1px solid #22c55e}
+    .app-icon.entregador{background:#2e1a00;border:1px solid var(--y)}
+
+    .app-info{flex:1;min-width:0}
+    .app-title{font-size:16px;font-weight:700;color:#fff}
+    .app-desc{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.4}
+
+    .app-arrow{font-size:20px;color:#444;flex-shrink:0}
+
+    /* DIVIDER */
+    .divider{
+      width:100%;max-width:400px;
+      display:flex;align-items:center;gap:12px;
+      margin:8px 0
+    }
+    .divider-line{flex:1;height:1px;background:var(--border)}
+    .divider-txt{font-size:11px;color:#444;font-weight:600;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+
+    /* FOOTER */
+    .footer{
+      margin-top:40px;
+      text-align:center;
+      font-size:11px;color:#444;
+      font-weight:600;letter-spacing:.3px
+    }
+    .footer span{color:#666}
+  </style>
+</head>
+<body>
+
+  <div class="brand">
+    <div class="brand-logo">🛒</div>
+    <div class="brand-name">Econômico Delivery</div>
+    <div class="brand-sub">Painel Operacional</div>
+    <div class="brand-tag">RETAGUARDA</div>
+  </div>
+
+  <div class="cards">
+
+    <a class="app-card" href="https://fc360oficial.github.io/economico-admin" target="_self">
+      <div class="app-icon admin">🏪</div>
+      <div class="app-info">
+        <div class="app-title">Painel Admin</div>
+        <div class="app-desc">Pedidos, produtos, categorias e configurações da loja</div>
+      </div>
+      <div class="app-arrow">›</div>
+    </a>
+
+    <a class="app-card" href="https://fc360oficial.github.io/economico-expedicao" target="_self">
+      <div class="app-icon expedicao">📦</div>
+      <div class="app-info">
+        <div class="app-title">Expedição</div>
+        <div class="app-desc">Separação de pedidos, confirmação de saída e retiradas</div>
+      </div>
+      <div class="app-arrow">›</div>
+    </a>
+
+    <a class="app-card" href="https://fc360oficial.github.io/economico-entregador" target="_self">
+      <div class="app-icon entregador">🛵</div>
+      <div class="app-info">
+        <div class="app-title">Entregador</div>
+        <div class="app-desc">Rotas, confirmação de entrega e histórico do dia</div>
+      </div>
+      <div class="app-arrow">›</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    Desenvolvido por <span>Fluxo</span>
+  </div>
+
+</body>
+</html>
