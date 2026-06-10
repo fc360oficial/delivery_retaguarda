@@ -18,9 +18,9 @@
 
     /* ── HEADER BRANCO + FAIXA AMARELA ── */
     .top-accent{height:6px;background:var(--y)}
-    .top-bar{background:#fff;padding:28px 24px 64px;text-align:center;position:relative;box-shadow:0 2px 0 #eee}
-    .top-bar-logo{width:130px;height:130px;border-radius:0;display:block;margin:0 auto 14px;object-fit:contain;box-shadow:none;background:none}
-    .top-bar-nome{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#111}
+    .top-bar{background:#fff;padding:28px 24px 68px;text-align:center;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .top-bar-logo{width:120px;height:120px;display:block;margin:0 auto 12px;object-fit:contain}
+    .top-bar-nome{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#111;letter-spacing:-.3px}
     .top-bar-badge{display:inline-block;background:var(--y);color:#000;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-top:8px}
 
     /* ── CONTAINER ── */
@@ -28,7 +28,8 @@
 
     /* ── LOGIN ── */
     #login-screen{min-height:100vh;display:flex;flex-direction:column;background:var(--bg)}
-    .login-card{background:var(--card);border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.10);padding:28px 24px}
+    .login-card{background:var(--card);border-radius:20px;box-shadow:0 4px 28px rgba(0,0,0,.10);padding:28px 24px}
+    .login-label{font-size:13px;font-weight:700;color:var(--text2);margin-bottom:16px;text-align:center;letter-spacing:.2px}
     .login-input{width:100%;background:#f9f9f9;border:1.5px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--text);font-size:15px;font-family:inherit;outline:none;margin-bottom:12px;transition:border-color .2s}
     .login-input:focus{border-color:var(--y);background:#fff}
     .login-btn{width:100%;padding:14px;border-radius:10px;background:var(--y);border:none;color:#000;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;transition:opacity .2s}
@@ -47,17 +48,18 @@
     .btn-logout:active{border-color:#999;color:#333}
 
     /* ── CARDS ── */
-    .cards{display:flex;flex-direction:column;gap:12px}
-    .app-card{display:flex;align-items:center;gap:16px;background:var(--card);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:18px 20px;text-decoration:none;color:var(--text);transition:box-shadow .2s,transform .1s;border:1.5px solid transparent}
-    .app-card:active{transform:scale(.98);box-shadow:0 1px 6px rgba(0,0,0,.1);border-color:var(--y)}
-    .app-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+    .cards{display:flex;flex-direction:column;gap:10px}
+    .app-card{display:flex;align-items:center;gap:16px;background:var(--card);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:18px 20px;text-decoration:none;color:var(--text);transition:box-shadow .2s,transform .15s;border:1.5px solid transparent}
+    .app-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.11);transform:translateY(-1px)}
+    .app-card:active{transform:scale(.98);box-shadow:0 1px 6px rgba(0,0,0,.08);border-color:var(--y)}
+    .app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
     .app-icon.admin    {background:#eff6ff;border:1.5px solid #bfdbfe}
     .app-icon.expedicao{background:#f0fdf4;border:1.5px solid #bbf7d0}
     .app-icon.entregador{background:#fffbeb;border:1.5px solid #fde68a}
     .app-info{flex:1;min-width:0}
-    .app-title{font-size:16px;font-weight:800;color:var(--text)}
+    .app-title{font-size:15px;font-weight:800;color:var(--text)}
     .app-desc{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.4}
-    .app-arrow{font-size:22px;color:#ccc;flex-shrink:0}
+    .app-arrow{font-size:20px;color:#bbb;flex-shrink:0;font-weight:700}
 
     .no-access{text-align:center;padding:40px 20px;color:var(--text2);font-size:14px}
 
@@ -79,6 +81,7 @@
   </div>
   <div class="container">
     <div class="login-card">
+      <div class="login-label">Acesso restrito à equipe</div>
       <form id="login-form" onsubmit="event.preventDefault();doLogin()" autocomplete="on">
         <input class="login-input" type="text" id="inp-usuario" name="username" placeholder="Usuário" autocomplete="username"
           onkeydown="if(event.key==='Enter')document.getElementById('inp-senha').focus()">
