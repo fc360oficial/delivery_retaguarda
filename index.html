@@ -16,11 +16,12 @@
     :root{--y:#FFC600;--bg:#f5f5f5;--card:#fff;--border:#e8e8e8;--text:#1a1a1a;--text2:#888;--red:#e74c3c;--green:#2d9e62}
     body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;min-height:100vh}
 
-    /* ── HEADER AMARELO ── */
-    .top-bar{background:var(--y);padding:28px 24px 64px;text-align:center;position:relative}
-    .top-bar-logo{width:80px;height:80px;border-radius:20px;display:block;margin:0 auto 12px;object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.15)}
-    .top-bar-nome{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#000}
-    .top-bar-sub{font-size:12px;color:rgba(0,0,0,.55);font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-top:4px}
+    /* ── HEADER BRANCO + FAIXA AMARELA ── */
+    .top-accent{height:6px;background:var(--y)}
+    .top-bar{background:#fff;padding:28px 24px 64px;text-align:center;position:relative;box-shadow:0 2px 0 #eee}
+    .top-bar-logo{width:88px;height:88px;border-radius:22px;display:block;margin:0 auto 14px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+    .top-bar-nome{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#111}
+    .top-bar-badge{display:inline-block;background:var(--y);color:#000;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-top:8px}
 
     /* ── CONTAINER ── */
     .container{max-width:420px;margin:-36px auto 0;padding:0 16px calc(32px + env(safe-area-inset-bottom));position:relative;z-index:1}
@@ -68,12 +69,13 @@
 
 <!-- ── LOGIN ── -->
 <div id="login-screen">
+  <div class="top-accent"></div>
   <div class="top-bar">
     <img class="top-bar-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
       onerror="this.style.background='#000';this.style.display='flex';this.outerHTML='<div style=\'width:80px;height:80px;border-radius:20px;background:#000;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 12px\'>🛒</div>'"
       alt="Logo">
     <div class="top-bar-nome">Econômico Delivery</div>
-    <div class="top-bar-sub">Retaguarda</div>
+    <div class="top-bar-badge">Retaguarda</div>
   </div>
   <div class="container">
     <div class="login-card">
@@ -90,11 +92,12 @@
 
 <!-- ── APP ── -->
 <div id="app-screen">
+  <div class="top-accent"></div>
   <div class="top-bar">
     <img class="top-bar-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
       onerror="this.style.display='none'" alt="Logo">
     <div class="top-bar-nome">Econômico Delivery</div>
-    <div class="top-bar-sub">Retaguarda</div>
+    <div class="top-bar-badge">Retaguarda</div>
   </div>
   <div class="container">
     <div class="user-bar">
