@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
   <title>Econômico Delivery — Retaguarda</title>
-  <meta name="theme-color" content="#0d0d0d"/>
+  <meta name="theme-color" content="#FFC600"/>
   <meta name="mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -13,95 +13,100 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-    :root{--y:#FFC600;--dark:#0d0d0d;--card:#161616;--border:#2a2a2a;--text2:#888;--red:#e74c3c;--green:#2d9e62}
-    body{background:var(--dark);color:#fff;font-family:'Inter',system-ui,sans-serif;min-height:100vh}
+    :root{--y:#FFC600;--bg:#f5f5f5;--card:#fff;--border:#e8e8e8;--text:#1a1a1a;--text2:#888;--red:#e74c3c;--green:#2d9e62}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;min-height:100vh}
+
+    /* ── HEADER AMARELO ── */
+    .top-bar{background:var(--y);padding:28px 24px 64px;text-align:center;position:relative}
+    .top-bar-logo{width:80px;height:80px;border-radius:20px;display:block;margin:0 auto 12px;object-fit:cover;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+    .top-bar-nome{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#000}
+    .top-bar-sub{font-size:12px;color:rgba(0,0,0,.55);font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-top:4px}
+
+    /* ── CONTAINER ── */
+    .container{max-width:420px;margin:-36px auto 0;padding:0 16px calc(32px + env(safe-area-inset-bottom));position:relative;z-index:1}
 
     /* ── LOGIN ── */
-    #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .login-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px 28px;width:100%;max-width:360px;text-align:center}
-    .login-logo{width:80px;height:80px;border-radius:20px;margin:0 auto 16px;display:block;object-fit:cover}
-    .login-nome{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff}
-    .login-sub{font-size:12px;color:var(--text2);margin-top:4px;margin-bottom:28px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-    .login-input{width:100%;background:#111;border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:inherit;outline:none;margin-bottom:12px;transition:border-color .2s}
-    .login-input:focus{border-color:var(--y)}
+    #login-screen{min-height:100vh;display:flex;flex-direction:column;background:var(--bg)}
+    .login-card{background:var(--card);border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.10);padding:28px 24px}
+    .login-input{width:100%;background:#f9f9f9;border:1.5px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--text);font-size:15px;font-family:inherit;outline:none;margin-bottom:12px;transition:border-color .2s}
+    .login-input:focus{border-color:var(--y);background:#fff}
     .login-btn{width:100%;padding:14px;border-radius:10px;background:var(--y);border:none;color:#000;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;transition:opacity .2s}
     .login-btn:active{opacity:.85}
     .login-btn:disabled{opacity:.5;cursor:not-allowed}
-    .login-err{font-size:12px;color:var(--red);margin-top:10px;min-height:18px;font-weight:600}
+    .login-err{font-size:12px;color:var(--red);margin-top:10px;min-height:18px;font-weight:600;text-align:center}
 
     /* ── APP ── */
-    #app-screen{display:none;flex-direction:column;min-height:100vh;align-items:center;padding:32px 20px;padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+    #app-screen{display:none;flex-direction:column;min-height:100vh;background:var(--bg)}
 
-    .brand{text-align:center;margin-bottom:32px}
-    .brand-logo{width:72px;height:72px;border-radius:18px;margin:0 auto 14px;display:block;object-fit:cover;box-shadow:0 6px 24px rgba(255,198,0,.2)}
-    .brand-name{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff}
-    .brand-tag{display:inline-block;margin-top:8px;background:#1a1a1a;border:1px solid var(--border);border-radius:20px;padding:3px 14px;font-size:11px;color:var(--text2);font-weight:600;letter-spacing:.5px}
+    /* ── USER BAR ── */
+    .user-bar{background:var(--card);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+    .user-bar-nome{font-size:14px;font-weight:800;color:var(--text)}
+    .user-bar-perfil{font-size:11px;color:var(--text2);margin-top:2px}
+    .btn-logout{background:none;border:1.5px solid var(--border);color:#999;padding:6px 14px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+    .btn-logout:active{border-color:#999;color:#333}
 
-    .user-bar{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:400px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 16px;margin-bottom:20px}
-    .user-bar-info{display:flex;flex-direction:column}
-    .user-bar-nome{font-size:13px;font-weight:700;color:#fff}
-    .user-bar-perfil{font-size:11px;color:var(--text2);margin-top:1px}
-    .btn-logout{background:none;border:1px solid var(--border);color:var(--text2);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-    .btn-logout:active{border-color:#fff;color:#fff}
-
-    .cards{width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px}
-    .app-card{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;text-decoration:none;color:#fff;transition:border-color .2s,background .2s}
-    .app-card:active{background:#1e1e1e;border-color:#555}
-    .app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
-    .app-icon.admin    {background:#1a1a2e;border:1px solid #3b82f6}
-    .app-icon.expedicao{background:#1a2e1a;border:1px solid #22c55e}
-    .app-icon.entregador{background:#2e1a00;border:1px solid var(--y)}
+    /* ── CARDS ── */
+    .cards{display:flex;flex-direction:column;gap:12px}
+    .app-card{display:flex;align-items:center;gap:16px;background:var(--card);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:18px 20px;text-decoration:none;color:var(--text);transition:box-shadow .2s,transform .1s;border:1.5px solid transparent}
+    .app-card:active{transform:scale(.98);box-shadow:0 1px 6px rgba(0,0,0,.1);border-color:var(--y)}
+    .app-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+    .app-icon.admin    {background:#eff6ff;border:1.5px solid #bfdbfe}
+    .app-icon.expedicao{background:#f0fdf4;border:1.5px solid #bbf7d0}
+    .app-icon.entregador{background:#fffbeb;border:1.5px solid #fde68a}
     .app-info{flex:1;min-width:0}
-    .app-title{font-size:16px;font-weight:700}
+    .app-title{font-size:16px;font-weight:800;color:var(--text)}
     .app-desc{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.4}
-    .app-arrow{font-size:20px;color:#444;flex-shrink:0}
+    .app-arrow{font-size:22px;color:#ccc;flex-shrink:0}
 
     .no-access{text-align:center;padding:40px 20px;color:var(--text2);font-size:14px}
 
-    .footer{margin-top:36px;font-size:11px;color:#444;font-weight:600;letter-spacing:.3px}
-    .footer span{color:#666}
+    .footer{margin-top:32px;text-align:center;font-size:11px;color:#bbb;font-weight:600;letter-spacing:.3px}
+    .footer span{color:#999}
   </style>
 </head>
 <body>
 
 <!-- ── LOGIN ── -->
 <div id="login-screen">
-  <div class="login-box">
-    <img class="login-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
-      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'"
+  <div class="top-bar">
+    <img class="top-bar-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
+      onerror="this.style.background='#000';this.style.display='flex';this.outerHTML='<div style=\'width:80px;height:80px;border-radius:20px;background:#000;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 12px\'>🛒</div>'"
       alt="Logo">
-    <div id="logo-fallback" style="display:none;width:80px;height:80px;border-radius:20px;background:var(--y);align-items:center;justify-content:center;font-size:38px;margin:0 auto 16px">🛒</div>
-    <div class="login-nome">Econômico Delivery</div>
-    <div class="login-sub">Retaguarda</div>
-    <input class="login-input" type="text" id="inp-usuario" placeholder="Usuário" autocomplete="username"
-      onkeydown="if(event.key==='Enter')document.getElementById('inp-senha').focus()">
-    <input class="login-input" type="password" id="inp-senha" placeholder="Senha" autocomplete="current-password"
-      onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" id="btn-entrar" onclick="doLogin()">Entrar</button>
-    <div class="login-err" id="login-err"></div>
+    <div class="top-bar-nome">Econômico Delivery</div>
+    <div class="top-bar-sub">Retaguarda</div>
+  </div>
+  <div class="container">
+    <div class="login-card">
+      <input class="login-input" type="text" id="inp-usuario" placeholder="Usuário" autocomplete="username"
+        onkeydown="if(event.key==='Enter')document.getElementById('inp-senha').focus()">
+      <input class="login-input" type="password" id="inp-senha" placeholder="Senha" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="login-btn" id="btn-entrar" onclick="doLogin()">Entrar</button>
+      <div class="login-err" id="login-err"></div>
+    </div>
+    <div class="footer" style="margin-top:24px">Desenvolvido por <span>Fluxo Certo 360</span></div>
   </div>
 </div>
 
 <!-- ── APP ── -->
 <div id="app-screen">
-  <div class="brand">
-    <img class="brand-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
+  <div class="top-bar">
+    <img class="top-bar-logo" src="https://fc360oficial.github.io/economicodelivery/logo.png"
       onerror="this.style.display='none'" alt="Logo">
-    <div class="brand-name">Econômico Delivery</div>
-    <div class="brand-tag">RETAGUARDA</div>
+    <div class="top-bar-nome">Econômico Delivery</div>
+    <div class="top-bar-sub">Retaguarda</div>
   </div>
-
-  <div class="user-bar">
-    <div class="user-bar-info">
-      <div class="user-bar-nome" id="user-nome">—</div>
-      <div class="user-bar-perfil" id="user-perfil">—</div>
+  <div class="container">
+    <div class="user-bar">
+      <div>
+        <div class="user-bar-nome" id="user-nome">—</div>
+        <div class="user-bar-perfil" id="user-perfil">—</div>
+      </div>
+      <button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
-    <button class="btn-logout" onclick="doLogout()">Sair</button>
+    <div class="cards" id="cards-container"></div>
+    <div class="footer">Desenvolvido por <span>Fluxo Certo 360</span></div>
   </div>
-
-  <div class="cards" id="cards-container"></div>
-
-  <div class="footer">Desenvolvido por <span>Fluxo Certo 360</span></div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
